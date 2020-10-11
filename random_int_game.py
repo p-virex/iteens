@@ -1,31 +1,31 @@
-import random
+import random  # подключаем модуль random
 
-user_name = input('Как вас зовут?\n')
+user_name = input('Как вас зовут?\n')  # спрашиваем имя игрока
 
-if not user_name:
+if not user_name:   # если нет имени, прекращаем работу программы
     print('Вы не представились')
     exit()
 
-print('Привет, {}'.format(user_name))
+print('Привет, {}'.format(user_name))  # приветствуем игрока
 
-win_flag = False
+win_flag = False  # флаг при помощи которого опеределяем, победил игрок или нет
 
-while True:
-    random_int = random.randint(0, 10)
-    for count in range(1, 4):
-        user_int = int(input('{}, введите число от 0 до 10\n'.format(user_name)))
-        if user_int == random_int:
-            print('Вы угадали! Это число: {}'.format(random_int))
-            win_flag = True
-            break
-        print('Вы не угадали, Ваше число: {}, осталось {} попыток'.format(user_int, 3 - count))
-    if not win_flag:
+while True:  # основной игровой цикл, который будет работать пока игрок играет
+    random_int = random.randint(0, 10)  # сохраняем случайное число
+    for count in range(1, 4):  # цикл в котором задаем кол-во попыток чтобы угадать число
+        user_int = int(input('{}, введите число от 0 до 10\n'.format(user_name)))  # спрашиваем число у игрока
+        if user_int == random_int:  # сравниваем ответ игрока с загаданным числом
+            print('Вы угадали! Это число: {}'.format(random_int))   # сообщаем игроку что он выиграл
+            win_flag = True  # пометим в флаге, что игрок победил
+            break  # прекращаем цикл
+        # если игрок ошибся, сообщаем ему об этом и указываем остаток попыток
+        print('Вы не угадали, Ваше число: {}, осталось {} попыток'.format(user_int, 3 - count))  
+    if not win_flag:  # проверяем что игрок не выиграл
         print('{}, вы проиграли! Число было: {}'.format(user_name, random_int))
     else:
-        win_flag = False
-
+        win_flag = False  # возвращаем флаг в случае победы в начальное положение
+    # спрашиваем, хочет ли игрок сыграть еще раз
     user_answer = input('{}, желаете продолжить? N/n - для выхода'.format(user_name))
-
     if user_answer == 'n':
         break
 
