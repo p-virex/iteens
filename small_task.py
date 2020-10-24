@@ -63,3 +63,23 @@ c = n % 10
 
 # Вычисляется сумма цифр и выводится на экран
 print(a + b + c)
+
+import string
+import random
+from pprint import pprint
+
+letters_list = []
+
+for _ in range(10000):
+    letters_list.append(random.choice(string.ascii_letters))
+
+
+letters_count_dict = {}
+
+for letter in letters_list:
+    if letter not in letters_count_dict:
+        letters_count_dict[letter] = 1
+    else:
+        letters_count_dict[letter] = letters_count_dict[letter] + 1
+
+pprint(letters_count_dict)
