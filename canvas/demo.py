@@ -43,28 +43,38 @@ root = Tk()
 root.geometry(f'{WIDTH}x{HEIGHT}')
 c = Canvas(root, width=WIDTH, height=HEIGHT, bg='white')
 c.pack()
+c.create_line((50, 400), (300, 400))
+c.create_line((150, 200), (350, 200), outline='red')
 
-c.create_line(250, 5, 250, 495, width=3, arrow=FIRST)
-c.create_line(0, 250, 500, 250, width=3, arrow=LAST)
-start, coord = 0, 12
-for d in range(25):
-    start += 20
-    c.create_line(245, start, 255, start, width=3)
-    c.create_text(235, start, text=f'{coord}', font=('Calibri', 10))
-    if coord == 1:
-        coord -= 1
-    coord -= 1
+c.create_line((150, 200), (150, 50))
+c.create_line((150, 50), (400, 50))
+c.create_line((400, 50), (400, 200))
 
-start, coord = 0, 12
-for d in range(25):
-    start += 20
-    c.create_line(start, 245, start, 255, width=3)
-    c.create_text(start, 235, text=f'{coord}', font=('Calibri', 10))
-    if coord == 1:
-        coord -= 1
-    coord -= 1
+c.create_line((50, 400), (150, 200))
+c.create_line((300, 400), (400, 200))
 
-c.create_text(220, 20, text='y', font=('Calibri', 20))
-c.create_text(20, 220, text='x', font=('Calibri', 20))
+# c.create_line((50, 400), (300, 450), (445, 300), (220, 260), (50, 400), )
+# c.create_line(250, 5, 250, 495, width=3, arrow=FIRST)
+# c.create_line(0, 250, 500, 250, width=3, arrow=LAST)
+# start, coord = 0, 12
+# for d in range(25):
+#     start += 20
+#     c.create_line(245, start, 255, start, width=3)
+#     c.create_text(235, start, text=f'{coord}', font=('Calibri', 10))
+#     if coord == 1:
+#         coord -= 1
+#     coord -= 1
+#
+# start, coord = 0, 12
+# for d in range(25):
+#     start += 20
+#     c.create_line(start, 245, start, 255, width=3)
+#     c.create_text(start, 235, text=f'{coord}', font=('Calibri', 10))
+#     if coord == 1:
+#         coord -= 1
+#     coord -= 1
+#
+# c.create_text(220, 20, text='y', font=('Calibri', 20))
+# c.create_text(20, 220, text='x', font=('Calibri', 20))
 
 root.mainloop()

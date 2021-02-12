@@ -25,11 +25,11 @@ tk.update()
 # Описываем класс Ball, который будет отвечать за шарик
 class Ball:
     # конструктор — он вызывается в момент создания нового объекта на основе этого класса
-    def __init__(self, canvas, paddle, score, color):
+    def __init__(self, canvas,  color):
         # задаём параметры объекта, которые нам передают в скобках в момент создания
         self.canvas = canvas
-        self.paddle = paddle
-        self.score = score
+        # self.paddle = paddle
+        # self.score = score
         self.speed = 1
         # цвет нужен был для того, чтобы мы им закрасили весь шарик
         # здесь появляется новое свойство id, в котором хранится внутреннее название шарика
@@ -53,18 +53,18 @@ class Ball:
 
     # обрабатываем касание платформы, для этого получаем 4 координаты шарика в переменной pos
     # (левая верхняя и правая нижняя точки)
-    def hit_paddle(self, pos):
-        # получаем кординаты платформы через объект paddle (платформа)
-        paddle_pos = self.canvas.coords(self.paddle.id)
-        # если координаты касания совпадают с координатами платформы
-        if pos[2] >= paddle_pos[0] and pos[0] <= paddle_pos[2]:
-            if all([pos[3] >= paddle_pos[1], pos[3] <= paddle_pos[3]]):
-                # увеличиваем счёт (обработчик этого события будет описан ниже)
-                self.score.hit(self)
-                # возвращаем метку о том, что мы успешно коснулись
-                return True
-        # возвращаем False — касания не было
-        return False
+    # def hit_paddle(self, pos):
+    #     # получаем кординаты платформы через объект paddle (платформа)
+    #     paddle_pos = self.canvas.coords(self.paddle.id)
+    #     # если координаты касания совпадают с координатами платформы
+    #     if pos[2] >= paddle_pos[0] and pos[0] <= paddle_pos[2]:
+    #         if all([pos[3] >= paddle_pos[1], pos[3] <= paddle_pos[3]]):
+    #             # увеличиваем счёт (обработчик этого события будет описан ниже)
+    #             self.score.hit(self)
+    #             # возвращаем метку о том, что мы успешно коснулись
+    #             return True
+    #     # возвращаем False — касания не было
+    #     return False
 
     # метод, который отвечает за движение шарика
     def draw(self):
@@ -83,9 +83,9 @@ class Ball:
             # выводим сообщение и количество очков
             canvas.create_text(250, 120, text='Вы проиграли', font=('Courier', 30), fill='red')
         # если было касание платформы
-        if self.hit_paddle(pos):
-            # отправляем шарик наверх
-            self.y = -self.speed
+        # if self.hit_paddle(pos):
+        #     # отправляем шарик наверх
+        #     self.y = -self.speed
         # если коснулись левой стенки
         if pos[0] <= 0:
             # движемся вправо
@@ -170,43 +170,43 @@ class Paddle:
 
 
 #  Описываем класс Score, который отвечает за отображение счетов
-class Score:
-    # конструктор
-    def __init__(self, canvas, color):
-        # в самом начале счёт равен нулю
-        self.score = 0
-        # будем использовать наш холст
-        self.canvas = canvas
-        # создаём надпись, которая показывает текущий счёт, делаем его нужно цвета и запоминаем
-        # внутреннее имя этой надписи
-        self.id = canvas.create_text(450, 10, text=self.score, font=('Courier', 15), fill=color)
-
-    # обрабатываем касание платформы
-    def hit(self, ball):
-        # увеличиваем счёт на единицу
-        self.score += 1
-        # пишем новое значение счёта
-        self.canvas.itemconfig(self.id, text=self.score)
-        # увеличиваем скорость шарика каждые 2 очка
-        if self.score % 2 == 0:
-            ball.speed += 1
+# class Score:
+#     # конструктор
+#     def __init__(self, canvas, color):
+#         # в самом начале счёт равен нулю
+#         self.score = 0
+#         # будем использовать наш холст
+#         self.canvas = canvas
+#         # создаём надпись, которая показывает текущий счёт, делаем его нужно цвета и запоминаем
+#         # внутреннее имя этой надписи
+#         self.id = canvas.create_text(450, 10, text=self.score, font=('Courier', 15), fill=color)
+#
+#     # обрабатываем касание платформы
+#     def hit(self, ball):
+#         # увеличиваем счёт на единицу
+#         self.score += 1
+#         # пишем новое значение счёта
+#         self.canvas.itemconfig(self.id, text=self.score)
+#         # увеличиваем скорость шарика каждые 2 очка
+#         if self.score % 2 == 0:
+#             ball.speed += 1
 
 
 # создаём объект — зелёный счёт
-score = Score(canvas, 'green')
+# score = Score(canvas, 'green')
 # создаём объект — белую платформу
-paddle = Paddle(canvas, 'White')
+# paddle = Paddle(canvas, 'White')
 # создаём объект — красный шарик
-ball = Ball(canvas, paddle, score, 'red')
+ball = Ball(canvas, 'red')
 # ball2 = Ball(canvas, paddle, score, 'black')
 # пока шарик не коснулся дна
 while not ball.hit_bottom:
     # если игра началась и платформа может двигаться
-    if paddle.started:
-        # двигаем шарик
-        ball.draw()
-        # двигаем платформу
-        paddle.draw()
+    # if paddle.started:
+    #     # двигаем шарик
+    #     ball.draw()
+    #     # двигаем платформу
+    #     paddle.draw()
     # обновляем наше игровое поле, чтобы всё, что нужно, закончило рисоваться
     tk.update_idletasks()
     # обновляем игровое поле и смотрим за тем, чтобы всё, что должно было быть сделано — было сделано

@@ -38,6 +38,15 @@ def calculation_button(operation):
     return Button(text=operation, bd=5, fg='red', font=('Calibry', 14), command=lambda: calculate())
 
 
+def press_key(event):
+    if event.char.isdigit():
+        add_number(event.char)
+    elif event.char in '+-/*':
+        add_operation(event.char)
+    elif event.char == '\r':
+        calculate()
+
+
 SIZE = WIDTH, HEIGHT = (300, 380)
 
 user32 = ctypes.windll.user32
@@ -48,6 +57,8 @@ window.title('Calculator 8.0')
 window.geometry(f'{WIDTH}x{HEIGHT}+{int(CWIDTH / 2 - WIDTH / 2)}+{int(CHEIGHT / 2 - HEIGHT / 2)}')
 window.resizable(False, False)
 window['bg'] = '#b8b9c2'
+
+window.bind('<Key>', press_key)
 
 calc = Entry(window, justify=RIGHT, font=('Calibry', 16), width=18)
 calc.insert(0, '0')
