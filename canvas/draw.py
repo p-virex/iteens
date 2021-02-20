@@ -43,7 +43,7 @@ def make_motion(event):
 root = tk.Tk()
 root.geometry('400x600')
 root['bg'] = 'white'
-canvas = tk.Canvas(root, width=400, height=400)
+canvas = tk.Canvas(root, width=400, height=400, cursor="pencil")
 canvas.grid(row=0, column=0, columnspan=2)
 canvas.old = None
 canvas.func = canvas.create_oval

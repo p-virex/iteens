@@ -2,8 +2,7 @@ from tkinter import *
 
 root = Tk()
 root.geometry('600x600+100+100')
-canv = Canvas(root,width=600,height=600,bg="gray",
-          cursor="pencil")
+canv = Canvas(root, width=600, height=600, bg='gray')
 canv.pack(fill=BOTH, expand=1)
 
 
