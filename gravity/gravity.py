@@ -8,7 +8,7 @@ size = width, height = 1200, 800
 # установим скорость по Х и У
 x, y = 15, 1
 # установим гравитацию (условно) скорость с которой шарик будет прижиматься к полу
-G = 5
+G = 10
 # создаим холст с нужным размером
 screen = pygame.display.set_mode(size)
 # загрузим изображение шарика
@@ -19,7 +19,7 @@ clock = pygame.time.Clock()
 
 
 while True:
-    clock.tick(60)
+    clock.tick(30)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
