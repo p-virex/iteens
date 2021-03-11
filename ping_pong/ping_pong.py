@@ -38,7 +38,7 @@ class Ball:
         self.canvas.move(self.ball, 0, 0)
         # выбираем вектор движения шара
         self.x = random.choice([random.randint(-5, -1), random.randint(1, 5)])
-        # в самом начале он всегда падает вниз, поэтому уменьшаем значение по оси y
+        # в самом начале он всегда падает вниз, поэтому уменьшаем значение по оси y_bird
         self.y = -5
         # свойство, которое отвечает за то, достиг шарик дна или нет. Пока не достиг, значение будет False
         self.hit_bottom = False
@@ -86,7 +86,7 @@ class Ball:
         if pos[2] >= WIDTH:
             # движемся влево
             self.x = -self.speed
-        # передвигаем шарик на заданный вектор x и y
+        # передвигаем шарик на заданный вектор x и y_bird
         self.canvas.move(self.ball, self.x, self.y)
 
 

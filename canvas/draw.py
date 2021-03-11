@@ -30,7 +30,7 @@ def make(event):
 
 def make_motion(event):
     #  'char', 'delta', 'height', 'keycode', 'keysym', 'keysym_num', 'num',
-    #  'send_event', 'serial', 'state', 'time', 'type', 'widget', 'width', 'x', 'x_root', 'y', 'y_root'
+    #  'send_event', 'serial', 'state', 'time', 'type', 'widget', 'width', 'x', 'x_root', 'y_bird', 'y_root'
 
     x, y = event.x, event.y
     if canvas.obj:

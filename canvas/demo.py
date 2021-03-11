@@ -74,7 +74,7 @@ c.create_line((300, 400), (400, 200))
 #         coord -= 1
 #     coord -= 1
 #
-# c.create_text(220, 20, text='y', font=('Calibri', 20))
+# c.create_text(220, 20, text='y_bird', font=('Calibri', 20))
 # c.create_text(20, 220, text='x', font=('Calibri', 20))
 
 root.mainloop()
