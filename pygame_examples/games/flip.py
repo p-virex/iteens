@@ -45,8 +45,8 @@ while game is True:
     screen.fill(bg_color)
     pg.draw.circle(screen, (255, 0, 0), (150, y_bird), size)
     pg.draw.rect(screen, (0, 255, 0), (x, y, 30, 400))
-
     pg.draw.rect(screen, (0, 255, 255), (x, 0, 30, y_vert))
+
     draw_text(f'{int(clock.get_fps())}', (10, 10))
     draw_text(f'{score}', (480, 10))
     pressed_keys = pg.key.get_pressed()
