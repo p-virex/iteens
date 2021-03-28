@@ -15,10 +15,9 @@ COLOUR_INDEX = [x for x in range(0, 4)]
 
 RANK_INDEX = [x for x in range(1, 14 if not SHORT_DECK else 10)]
 
-COLOUR_NAME = ['clubs', 'diamonds', 'hearts', 'spades']
 
-COLOUR_NAME_INDEX = {COLOUR_NAME[i]: i for i in COLOUR_INDEX}
-COLOUR_INDEX_NAME = {i: COLOUR_NAME[i] for i in COLOUR_INDEX}
+
+
 
 LONG_DECK_RANK_NAME = [
     '2',
