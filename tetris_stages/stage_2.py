@@ -94,10 +94,17 @@ anim_count, anim_speed, anim_limit = 0, 60, 2000
 # это может привести к неприятным последствиям в виде того, что следующая фигру уже будет изменена
 figure = deepcopy(choice(figures))
 
+
 def check_game_borders():
+    """
+    a
+    :return:
+    :rtype:
+    """
     if figure[i].x < 0 or figure[i].x > W - 1:
         return False
     return True
+
 
 while True:
     # координата которая двигает фигуру по X
@@ -143,8 +150,8 @@ while True:
         pygame.draw.rect(game_screen, (40, 40, 40), rect, 1)
     # отрисуем текущую фигуру
     for i in range(4):
-        figure_rect.x = figure[i].x * TILE
-        figure_rect.y = figure[i].y * TILE
+        figure_rect.x = figure[i].x * TILE+1
+        figure_rect.y = figure[i].y * TILE+1
         pygame.draw.rect(game_screen, (255, 0, 0), figure_rect)
     pygame.display.update()
     clock.tick(60)

@@ -59,6 +59,10 @@ score, lines = 0, 0
 scores = {0: 0, 1: 100, 2: 300, 3: 700, 4: 1500}
 
 
+
+
+
+
 def check_borders():
     if figure[i].x < 0 or figure[i].x > W - 1:
         return False
